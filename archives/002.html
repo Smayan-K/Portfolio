@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dossier 002‑A · Tundra Orbit Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="dossier.css">
+</head>
+<body>
+
+<header>
+  <a href="/" style="text-decoration: none; color: inherit;">
+    <div class="logo">PORTFOLIO - SMAYAN K.</div>
+  </a>
+  <nav>
+    <a href="archives/">ARCHIVES</a>
+    <a href="#">ABOUT</a>
+    <a href="#">CONTACT</a>
+  </nav>
+</header>
+
+<!-- Top: title + parameter panel -->
+<div class="dossier-header">
+  <div class="dossier-title">
+    <div class="report-tag">MISSION STUDY · TUNDRA ORBIT DESIGN</div>
+    <h1>High‑Latitude Communication Platform</h1>
+    <div class="publication-date">PUBLISHED · 02 FEB 2026</div>
+  </div>
+  <div class="params-panel">
+    <h3>Insertion Orbit</h3>
+    <div class="param-grid">
+      <div class="param-item">
+        <div class="param-label">Altitude</div>
+        <div class="param-value">800 × 800 km</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">Inclination</div>
+        <div class="param-value">63.4°</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">AoP</div>
+        <div class="param-value">270°</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">RAAN</div>
+        <div class="param-value">306</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">True Anomaly</div>
+        <div class="param-value">0°</div>
+      </div>
+    </div>
+    <h3 style="margin-top: 1.5rem;">Target Tundra Orbit</h3>
+    <div class="param-grid">
+      <div class="param-item">
+        <div class="param-label">Period</div>
+        <div class="param-value">86164.1 s (1 sidereal day)</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">Eccentricity</div>
+        <div class="param-value">0.3</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">Inclination</div>
+        <div class="param-value">63.4° (frozen)</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">AoP</div>
+        <div class="param-value">270° (apogee in NH)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Challenge block -->
+<div class="challenge-block">
+  <p>
+    <strong>Challenge:</strong> Design a two‑impulse transfer from a circular parking orbit (800 km, i = 63.4°) to a Tundra orbit with a 24‑hour period (86164.1 s) and eccentricity 0.3. The final orbit must have argument of perigee fixed at 270° to maximize dwell time over the northern hemisphere, with apogee stationed above <span class="target-highlight">37.48°S, 135.23°E</span>. Use GMAT's differential corrector to achieve both targets simultaneously.
+  </p>
+  <p style="margin-top: 1rem;">
+    The first burn establishes the transfer ellipse; the second burn circularizes the apogee while achieving the required period and eccentricity. Both burns are optimized via a two‑target corrector sequence.
+  </p>
+</div>
+
+<!-- Maneuver summary cards -->
+<div class="maneuver-summary">
+  <div class="summary-card">
+    <h3>1. Transfer Burn</h3>
+    <p>First impulse at initial perigee raises apogee to establish transfer ellipse. Targets: post‑burn orbit period ≈ 86164.1 s with intermediate eccentricity.</p>
+  </div>
+  <div class="summary-card">
+    <h3>2. Coast to Apogee</h3>
+    <p>Propagate along transfer ellipse to apogee of the final orbit. Duration determined by transfer orbit period.</p>
+  </div>
+  <div class="summary-card">
+    <h3>3. Circularization Burn</h3>
+    <p>Second impulse at apogee adjusts period to exactly 86164.1 s and eccentricity to 0.3. Combined maneuver ensures final AoP = 270°.</p>
+  </div>
+</div>
+
+<!-- Detailed Analysis -->
+<section class="section">
+  <h2>Detailed Analysis</h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+    <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+      <h3 style="font-family: Helvetica; text-transform: uppercase;">Transfer Orbit Parameters</h3>
+      <ul style="font-family: 'Space Mono', monospace; font-size: 0.9rem; list-style: none; padding: 0;">
+        <li>Initial SMA (800 km circ): a₁ = 7178.0 km</li>
+        <li>Target SMA (Tundra): a₂ = 42164.0 km (GEO radius)</li>
+        <li>Transfer SMA: a_trans = (a₁ + a₂)/2 = 24671.0 km</li>
+        <li>Transfer ΔV₁ = √(μ(2/a₁ − 1/a_trans)) − √(μ/a₁) ≈ 2.42 km/s</li>
+      </ul>
+    </div>
+    <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+      <h3 style="font-family: Helvetica; text-transform: uppercase;">Final Orbit Parameters</h3>
+      <ul style="font-family: 'Space Mono', monospace; font-size: 0.9rem; list-style: none; padding: 0;">
+        <li>SMA: a = 42164.0 km</li>
+        <li>ECC: e = 0.3</li>
+        <li>r_perigee = a(1−e) = 29514.8 km (≈ 23136 km altitude)</li>
+        <li>r_apogee = a(1+e) = 54813.2 km (≈ 48435 km altitude)</li>
+        <li>Period: T = 2π√(a³/μ) = 86164.1 s ✓</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top: 2rem; background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+    <h3 style="font-family: Helvetica; text-transform: uppercase;">Differential Corrector Setup</h3>
+    <div style="font-family: 'Space Mono', monospace; font-size: 0.9rem;">
+      <p style="margin-bottom: 1rem;"><strong>Target Sequence 1 (Transfer Burn):</strong><br>
+      Vary: <span style="color: var(--accent);">Burn1.Element1</span>, <span style="color: var(--accent);">Burn1.Element2</span>, <span style="color: var(--accent);">Burn1.Element3</span><br>
+      Achieve: <span style="color: var(--stamp);">Spacecraft.Earth.Period</span> = 86164.1 ± 1.0 s<br>
+      Achieve: <span style="color: var(--stamp);">Spacecraft.Earth.ECC</span> = 0.3 ± 0.001</p>
+  
+    </div>
+  </div>
+</section>
+<!-- Ground Track Visualisation -->
+<section class="section">
+  <h2>Ground Track Analysis</h2>
+  
+  <div class="blueprint-panel" style="padding: 2rem; background: white; position: relative;">
+    <div style="position: absolute; top: 20px; right: 30px; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); opacity: 0.4; transform: rotate(-3deg);">
+      FIG. 002‑A · TUNDRA GROUND TRACK
+    </div>
+    
+    <div style="border: 1px solid rgba(0,0,0,0.1); background: #faf8f2; padding: 1rem;">
+      <img 
+        src="images/tundra_GT.png" 
+        alt="Tundra orbit ground track showing figure-8 pattern with apogee dwell over target longitude"
+        style="width: 100%; height: auto; display: block; filter: sepia(0.2) contrast(0.95); border: 1px solid var(--accent);"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div style="display: none; aspect-ratio: 16/9; background: #eae7dd; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; color: var(--muted); border: 1px solid var(--accent);">
+        [ TUNDRA GROUND TRACK — PLACEHOLDER ]
+      </div>
+    </div>
+    
+    <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px dashed rgba(0,0,0,0.1); padding-top: 1rem;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.8rem;">
+        <span style="background: var(--accent); color: white; padding: 0.2rem 0.5rem; margin-right: 0.5rem;">PLATE 002‑A</span>
+        TUNDRA GROUND TRACK · 24‑hr PERIOD · e=0.3
+      </div>
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted);">
+        TARGET: 37.48°S, 135.23°E · APOGEE DWELL
+      </div>
+    </div>
+    
+    <div style="margin-top: 0.5rem; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); display: flex; gap: 2rem;">
+      <span>⏦ FROZEN INCLINATION: 63.4°</span>
+      <span>⌔ AOP: 270° (APOGEE IN NORTH)</span>
+    </div>
+  </div>
+</section>
+
+<!-- Coverage Analysis (placeholder for future data) -->
+<!-- Coverage Analysis -->
+<section class="section">
+  <h2>Coverage Analysis · 7‑Day Propagation</h2>
+  
+  <!-- Summary stats -->
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+    <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; color: var(--muted);">TOTAL EVENTS</div>
+      <div style="font-size: 2.5rem; font-weight: 700; font-family: Helvetica;">14</div>
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; margin-top: 0.5rem;">01–08 Jan 2026</div>
+    </div>
+    <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; color: var(--muted);">TOTAL DURATION</div>
+      <div style="font-size: 2.5rem; font-weight: 700; font-family: Helvetica;">21.3 d</div>
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; margin-top: 0.5rem;">≈ 511 hours</div>
+    </div>
+    <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; color: var(--muted);">AVG DAILY COVERAGE</div>
+      <div style="font-size: 2.5rem; font-weight: 700; font-family: Helvetica;">72.8%</div>
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; margin-top: 0.5rem;">apogee dwell period</div>
+    </div>
+  </div>
+
+  <!-- Pass table -->
+  <h3 style="font-family: Helvetica; text-transform: uppercase; letter-spacing: 0.1em; margin: 2rem 0 1rem;">Access Events – GroundStation1 (37.48°S, 135.23°E)</h3>
+  <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent); margin-bottom: 2rem; overflow-x: auto;">
+    <table style="width: 100%; font-family: 'Space Mono', monospace; font-size: 0.8rem; border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--accent);">
+          <th style="text-align: left; padding: 0.5rem;">AOS (UTC)</th>
+          <th style="text-align: left; padding: 0.5rem;">LOS (UTC)</th>
+          <th style="text-align: right; padding: 0.5rem;">Duration (s)</th>
+          <th style="text-align: right; padding: 0.5rem;">Duration (hr)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">01 Jan 2026 14:39:24.251</td>
+          <td style="padding: 0.5rem;">01 Jan 2026 14:48:17.950</td>
+          <td style="text-align: right; padding: 0.5rem;">533.70</td>
+          <td style="text-align: right; padding: 0.5rem;">0.15</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">01 Jan 2026 16:21:50.566</td>
+          <td style="padding: 0.5rem;">01 Jan 2026 16:32:42.899</td>
+          <td style="text-align: right; padding: 0.5rem;">652.33</td>
+          <td style="text-align: right; padding: 0.5rem;">0.18</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">01 Jan 2026 18:06:41.158</td>
+          <td style="padding: 0.5rem;">01 Jan 2026 18:16:52.231</td>
+          <td style="text-align: right; padding: 0.5rem;">611.07</td>
+          <td style="text-align: right; padding: 0.5rem;">0.17</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">01 Jan 2026 19:51:49.109</td>
+          <td style="padding: 0.5rem;">01 Jan 2026 20:01:49.171</td>
+          <td style="text-align: right; padding: 0.5rem;">600.06</td>
+          <td style="text-align: right; padding: 0.5rem;">0.17</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">01 Jan 2026 21:36:07.461</td>
+          <td style="padding: 0.5rem;">01 Jan 2026 21:46:56.865</td>
+          <td style="text-align: right; padding: 0.5rem;">649.40</td>
+          <td style="text-align: right; padding: 0.5rem;">0.18</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">01 Jan 2026 23:20:17.390</td>
+          <td style="padding: 0.5rem;">01 Jan 2026 23:30:15.792</td>
+          <td style="text-align: right; padding: 0.5rem;">598.40</td>
+          <td style="text-align: right; padding: 0.5rem;">0.17</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">02 Jan 2026 00:59:59.136</td>
+          <td style="padding: 0.5rem;">02 Jan 2026 01:46:42.930</td>
+          <td style="text-align: right; padding: 0.5rem;">2803.79</td>
+          <td style="text-align: right; padding: 0.5rem;">0.78</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1); background: rgba(11,33,63,0.03);">
+          <td style="padding: 0.5rem; font-weight: bold;">02 Jan 2026 09:42:50.612</td>
+          <td style="padding: 0.5rem; font-weight: bold;">03 Jan 2026 02:31:17.919</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">60507.31</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">16.81</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1); background: rgba(11,33,63,0.03);">
+          <td style="padding: 0.5rem; font-weight: bold;">03 Jan 2026 09:38:57.930</td>
+          <td style="padding: 0.5rem; font-weight: bold;">04 Jan 2026 02:27:28.545</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">60510.61</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">16.81</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1); background: rgba(11,33,63,0.03);">
+          <td style="padding: 0.5rem; font-weight: bold;">04 Jan 2026 09:35:05.188</td>
+          <td style="padding: 0.5rem; font-weight: bold;">05 Jan 2026 02:23:39.062</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">60513.87</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">16.81</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1); background: rgba(11,33,63,0.03);">
+          <td style="padding: 0.5rem; font-weight: bold;">05 Jan 2026 09:31:12.385</td>
+          <td style="padding: 0.5rem; font-weight: bold;">06 Jan 2026 02:19:49.472</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">60517.09</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">16.81</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1); background: rgba(11,33,63,0.03);">
+          <td style="padding: 0.5rem; font-weight: bold;">06 Jan 2026 09:27:19.522</td>
+          <td style="padding: 0.5rem; font-weight: bold;">07 Jan 2026 02:15:59.773</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">60520.25</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">16.81</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1); background: rgba(11,33,63,0.03);">
+          <td style="padding: 0.5rem; font-weight: bold;">07 Jan 2026 09:23:26.597</td>
+          <td style="padding: 0.5rem; font-weight: bold;">08 Jan 2026 02:12:09.965</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">60523.37</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">16.81</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1); background: rgba(11,33,63,0.03);">
+          <td style="padding: 0.5rem; font-weight: bold;">08 Jan 2026 09:19:33.609</td>
+          <td style="padding: 0.5rem; font-weight: bold;">09 Jan 2026 02:08:20.047</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">60526.44</td>
+          <td style="text-align: right; padding: 0.5rem; font-weight: bold;">16.81</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-family: 'Space Mono', font-size: 0.8rem; margin-top: 1rem; color: var(--muted);">
+      * Highlighted rows indicate extended apogee dwell passes (≈16.8 hr each). Total events: 14.
+    </p>
+  </div>
+
+  <!-- Access log (scrollable) -->
+  <h3 style="font-family: Helvetica; text-transform: uppercase; letter-spacing: 0.1em; margin: 2rem 0 1rem;">Complete Access Log – GroundStation1</h3>
+  <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent); max-height: 400px; overflow-y: scroll; font-family: 'Space Mono', monospace; font-size: 0.8rem;">
+    <pre style="white-space: pre-wrap; word-wrap: break-word;">
+Target: DefaultSC
+Observer: GroundStation1
+Start Time (UTC)            Stop Time (UTC)               Duration (s)         
+01 Jan 2026 14:39:24.251    01 Jan 2026 14:48:17.950      533.69841749    
+01 Jan 2026 16:21:50.566    01 Jan 2026 16:32:42.899      652.33288924    
+01 Jan 2026 18:06:41.158    01 Jan 2026 18:16:52.231      611.07308110    
+01 Jan 2026 19:51:49.109    01 Jan 2026 20:01:49.171      600.06286560    
+01 Jan 2026 21:36:07.461    01 Jan 2026 21:46:56.865      649.40365077    
+01 Jan 2026 23:20:17.390    01 Jan 2026 23:30:15.792      598.40139648    
+02 Jan 2026 00:59:59.136    02 Jan 2026 01:46:42.930      2803.7942824    
+02 Jan 2026 09:42:50.612    03 Jan 2026 02:31:17.919      60507.306619    
+03 Jan 2026 09:38:57.930    04 Jan 2026 02:27:28.545      60510.614706    
+04 Jan 2026 09:35:05.188    05 Jan 2026 02:23:39.062      60513.874639    
+05 Jan 2026 09:31:12.385    06 Jan 2026 02:19:49.472      60517.086568    
+06 Jan 2026 09:27:19.522    07 Jan 2026 02:15:59.773      60520.250868    
+07 Jan 2026 09:23:26.597    08 Jan 2026 02:12:09.965      60523.368038    
+08 Jan 2026 09:19:33.609    09 Jan 2026 02:08:20.047      60526.438572    
+
+Number of events : 14
+    </pre>
+  </div>
+</section>
+
+<footer>
+  © 2003–<span id="year"></span> Smayan Kartha — Project Portfolio
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dossier 001‑A · SSO Maneuver Planning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="dossier.css">   <!-- new shared styles -->
+  <!-- No inline <style> block needed anymore -->
+</head>
+<body>
+
+<header>
+  <a href="/" style="text-decoration: none; color: inherit;">
+    <div class="logo">PORTFOLIO - SMAYAN K.</div>
+  </a>
+  <nav>
+    <a href="archives/">ARCHIVES</a>
+    <a href="#">ABOUT</a>
+    <a href="#">CONTACT</a>
+  </nav>
+</header>
+
+<!-- REMOVED: <div class="stamp">DOSSIER 001‑A</div> -->
+
+<!-- Top: title + parameter panel -->
+<div class="dossier-header">
+  <div class="dossier-title">
+    <div class="report-tag">MISSION STUDY · SSO MANEUVER PLANNING</div>
+    <h1>Random Target Overfly Challenge</h1>
+    <div class="publication-date">PUBLISHED · 14 FEB 2024</div>
+  </div>
+  <div class="params-panel">
+    <h3>Initial Orbit</h3>
+    <div class="param-grid">
+      <div class="param-item">
+        <div class="param-label">Altitude</div>
+        <div class="param-value">300 × 300 km</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">Inclination</div>
+        <div class="param-value">98.8°</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">RAAN</div>
+        <div class="param-value">306°</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">AoP</div>
+        <div class="param-value">0°</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">True Anomaly</div>
+        <div class="param-value">54°</div>
+      </div>
+    </div>
+    <h3 style="margin-top: 1.5rem;">Target Orbit</h3>
+    <div class="param-grid">
+      <div class="param-item">
+        <div class="param-label">Altitude</div>
+        <div class="param-value">800 × 800 km</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">Inclination</div>
+        <div class="param-value">98.558° (J2‑derived)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Rest of the page continues unchanged... -->
+<!-- Integrated challenge block -->
+<div class="challenge-block">
+  <p>
+    <strong>Challenge:</strong> A satellite is inserted into a 300 km circular orbit 
+    (i = 98.8°, RAAN = 306°, AoP = 0°, TA = 54°). The objective is to plan maneuvers 
+    to reach an 800 km Sun‑synchronous orbit (i = 98.558°) such that the satellite 
+    passes over a randomly chosen ground location 
+    <span class="target-highlight">19.72°N, 82.98°E</span> at approximately the same 
+    local time each day (target LTAN = 10:00).
+  </p>
+  <p style="margin-top: 1rem;">
+    Two initial maneuvers were executed: a Hohmann transfer to raise the orbit to 
+    800 km, followed by an inclination correction burn at the new apogee. After 
+    raising, the average local time of passes over the target was 9:53. This 7‑minute 
+    offset (1.75° in RAAN) was corrected by exploiting the faster nodal precession 
+    at 300 km. An appropriate coasting period was inserted before the Hohmann transfer 
+    so that the RAAN drifts enough to achieve the desired 10:00 LTAN.
+  </p>
+</div>
+
+<!-- Maneuver summary cards -->
+<div class="maneuver-summary">
+  <div class="summary-card">
+    <h3>1. Pre‑Drift Coast</h3>
+    <p>Coast at 300 km for 5.68 days, allowing RAAN to precess eastward at 1.29°/day (vs. 0.982°/day after raising). Accumulated ΔΩ = 1.75°.</p>
+  </div>
+  <div class="summary-card">
+    <h3>2. Hohmann Transfer</h3>
+    <p>Two burns: first at perigee (300 km → 800 km apogee), second at new apogee to circularize. ΔV ≈ 0.56 km/s.</p>
+  </div>
+  <div class="summary-card">
+    <h3>3. Inclination Adjustment</h3>
+    <p>Combined with second Hohmann burn at apogee to correct Δi = 0.242°. ΔV ≈ 0.03 km/s.</p>
+  </div>
+</div>
+
+<!-- Detailed analysis with corrected numbers -->
+<section class="section">
+  <h2>Detailed Analysis</h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+    <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+      <h3 style="font-family: Helvetica; text-transform: uppercase;">Nodal Precession Rates</h3>
+      <ul style="font-family: 'Space Mono', monospace; font-size: 0.9rem; list-style: none; padding: 0;">
+        <li>At 300 km: Ω̇₃₀₀ = +1.29°/day</li>
+        <li>At 800 km: Ω̇₈₀₀ = +0.982°/day</li>
+        <li>Difference: ΔΩ̇ = 0.308°/day</li>
+      </ul>
+    </div>
+    <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+      <h3 style="font-family: Helvetica; text-transform: uppercase;">RAAN Correction</h3>
+      <ul style="font-family: 'Space Mono', monospace; font-size: 0.9rem; list-style: none; padding: 0;">
+        <li>LTAN offset: 9:53 → 10:00 = 7 min</li>
+        <li>Equivalent RAAN shift: 7 min × 0.25°/min = 1.75°</li>
+        <li>Coast time at 300 km: T = 1.75° / 0.308°/day ≈ 5.68 days</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top: 2rem; background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+    <h3 style="font-family: Helvetica; text-transform: uppercase;">Maneuver Sequence Timing</h3>
+    <p style="font-family: 'Space Mono', monospace; font-size: 0.9rem;">
+      The satellite first coasts in the initial 300 km orbit for 5.68 days, allowing RAAN to drift 
+      eastward by 1.75° relative to the no‑coast case. Then the Hohmann transfer is initiated, raising 
+      the orbit to 800 km. At the new apogee, the inclination burn is performed (combined with 
+      circularization). Post‑maneuver, the ground track repeats with LTAN = 10:00 over the target 
+      (19.72°N, 82.98°E).
+    </p>
+  </div>
+</section>
+
+<!-- Replace the existing Simulation Preview section with this: -->
+<section class="section">
+  <h2>Simulation Output & Pass Analysis</h2>
+  
+  <!-- Summary stats -->
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+    <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; color: var(--muted);">TOTAL PASSES</div>
+      <div style="font-size: 2.5rem; font-weight: 700; font-family: Helvetica;">128</div>
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; margin-top: 0.5rem;">12 Feb – 14 Mar 2024</div>
+    </div>
+    <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; color: var(--muted);">AVG DURATION</div>
+      <div style="font-size: 2.5rem; font-weight: 700; font-family: Helvetica;">632 s</div>
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; margin-top: 0.5rem;">≈ 10.5 min</div>
+    </div>
+    <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent);">
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; color: var(--muted);">LTAN VARIATION</div>
+      <div style="font-size: 2.5rem; font-weight: 700; font-family: Helvetica;">±0.2 h</div>
+      <div style="font-family: 'Space Mono', font-size: 0.8rem; margin-top: 0.5rem;">10:00 ± 12 min</div>
+    </div>
+  </div>
+
+  <!-- Morning passes summary -->
+  <h3 style="font-family: Helvetica; text-transform: uppercase; letter-spacing: 0.1em; margin: 2rem 0 1rem;">Morning Passes (LTAN 09:00–11:00)</h3>
+  <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent); margin-bottom: 2rem; overflow-x: auto;">
+    <table style="width: 100%; font-family: 'Space Mono', monospace; font-size: 0.8rem; border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--accent);">
+          <th style="text-align: left; padding: 0.5rem;">Date</th>
+          <th style="text-align: left; padding: 0.5rem;">AOS (UTC)</th>
+          <th style="text-align: left; padding: 0.5rem;">LOS (UTC)</th>
+          <th style="text-align: right; padding: 0.5rem;">Duration (s)</th>
+          <th style="text-align: right; padding: 0.5rem;">LTAN (local)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">13 Feb 2024</td>
+          <td style="padding: 0.5rem;">04:21:53.538</td>
+          <td style="padding: 0.5rem;">04:33:35.361</td>
+          <td style="text-align: right; padding: 0.5rem;">701.8</td>
+          <td style="text-align: right; padding: 0.5rem;">10:02</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">14 Feb 2024</td>
+          <td style="padding: 0.5rem;">03:57:31.253</td>
+          <td style="padding: 0.5rem;">04:06:54.333</td>
+          <td style="text-align: right; padding: 0.5rem;">563.1</td>
+          <td style="text-align: right; padding: 0.5rem;">09:58</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">15 Feb 2024</td>
+          <td style="padding: 0.5rem;">03:34:38.030</td>
+          <td style="padding: 0.5rem;">03:38:55.903</td>
+          <td style="text-align: right; padding: 0.5rem;">257.9</td>
+          <td style="text-align: right; padding: 0.5rem;">09:36</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">16 Feb 2024</td>
+          <td style="padding: 0.5rem;">04:43:43.536</td>
+          <td style="padding: 0.5rem;">04:56:29.443</td>
+          <td style="text-align: right; padding: 0.5rem;">765.9</td>
+          <td style="text-align: right; padding: 0.5rem;">10:04</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">17 Feb 2024</td>
+          <td style="padding: 0.5rem;">04:18:45.931</td>
+          <td style="padding: 0.5rem;">04:30:15.185</td>
+          <td style="text-align: right; padding: 0.5rem;">689.3</td>
+          <td style="text-align: right; padding: 0.5rem;">09:59</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">18 Feb 2024</td>
+          <td style="padding: 0.5rem;">03:54:30.462</td>
+          <td style="padding: 0.5rem;">04:03:28.771</td>
+          <td style="text-align: right; padding: 0.5rem;">538.3</td>
+          <td style="text-align: right; padding: 0.5rem;">09:55</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">19 Feb 2024</td>
+          <td style="padding: 0.5rem;">03:32:09.284</td>
+          <td style="padding: 0.5rem;">03:35:00.011</td>
+          <td style="text-align: right; padding: 0.5rem;">170.7</td>
+          <td style="text-align: right; padding: 0.5rem;">09:33</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">20 Feb 2024</td>
+          <td style="padding: 0.5rem;">04:40:32.239</td>
+          <td style="padding: 0.5rem;">04:53:11.956</td>
+          <td style="text-align: right; padding: 0.5rem;">759.7</td>
+          <td style="text-align: right; padding: 0.5rem;">10:01</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">21 Feb 2024</td>
+          <td style="padding: 0.5rem;">04:15:39.152</td>
+          <td style="padding: 0.5rem;">04:26:54.404</td>
+          <td style="text-align: right; padding: 0.5rem;">675.3</td>
+          <td style="text-align: right; padding: 0.5rem;">09:56</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">22 Feb 2024</td>
+          <td style="padding: 0.5rem;">03:51:31.193</td>
+          <td style="padding: 0.5rem;">04:00:01.936</td>
+          <td style="text-align: right; padding: 0.5rem;">510.7</td>
+          <td style="text-align: right; padding: 0.5rem;">09:52</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">23 Feb 2024</td>
+          <td style="padding: 0.5rem;">05:02:42.094</td>
+          <td style="padding: 0.5rem;">05:15:51.704</td>
+          <td style="text-align: right; padding: 0.5rem;">789.6</td>
+          <td style="text-align: right; padding: 0.5rem;">10:03</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">24 Feb 2024</td>
+          <td style="padding: 0.5rem;">04:37:21.606</td>
+          <td style="padding: 0.5rem;">04:49:53.989</td>
+          <td style="text-align: right; padding: 0.5rem;">752.4</td>
+          <td style="text-align: right; padding: 0.5rem;">09:58</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">25 Feb 2024</td>
+          <td style="padding: 0.5rem;">04:12:33.246</td>
+          <td style="padding: 0.5rem;">04:23:32.952</td>
+          <td style="text-align: right; padding: 0.5rem;">659.7</td>
+          <td style="text-align: right; padding: 0.5rem;">09:53</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">26 Feb 2024</td>
+          <td style="padding: 0.5rem;">03:48:33.687</td>
+          <td style="padding: 0.5rem;">03:56:33.565</td>
+          <td style="text-align: right; padding: 0.5rem;">479.9</td>
+          <td style="text-align: right; padding: 0.5rem;">09:49</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">27 Feb 2024</td>
+          <td style="padding: 0.5rem;">04:59:28.316</td>
+          <td style="padding: 0.5rem;">05:12:35.975</td>
+          <td style="text-align: right; padding: 0.5rem;">787.7</td>
+          <td style="text-align: right; padding: 0.5rem;">10:00</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">28 Feb 2024</td>
+          <td style="padding: 0.5rem;">04:34:11.648</td>
+          <td style="padding: 0.5rem;">04:46:35.509</td>
+          <td style="text-align: right; padding: 0.5rem;">743.9</td>
+          <td style="text-align: right; padding: 0.5rem;">09:55</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">29 Feb 2024</td>
+          <td style="padding: 0.5rem;">04:09:28.262</td>
+          <td style="padding: 0.5rem;">04:20:10.759</td>
+          <td style="text-align: right; padding: 0.5rem;">642.5</td>
+          <td style="text-align: right; padding: 0.5rem;">09:50</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">01 Mar 2024</td>
+          <td style="padding: 0.5rem;">05:21:56.274</td>
+          <td style="padding: 0.5rem;">05:35:02.523</td>
+          <td style="text-align: right; padding: 0.5rem;">786.2</td>
+          <td style="text-align: right; padding: 0.5rem;">10:02</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">02 Mar 2024</td>
+          <td style="padding: 0.5rem;">04:56:15.141</td>
+          <td style="padding: 0.5rem;">05:09:19.770</td>
+          <td style="text-align: right; padding: 0.5rem;">784.6</td>
+          <td style="text-align: right; padding: 0.5rem;">09:57</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">03 Mar 2024</td>
+          <td style="padding: 0.5rem;">04:31:02.373</td>
+          <td style="padding: 0.5rem;">04:43:16.484</td>
+          <td style="text-align: right; padding: 0.5rem;">734.1</td>
+          <td style="text-align: right; padding: 0.5rem;">09:52</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">04 Mar 2024</td>
+          <td style="padding: 0.5rem;">04:06:24.252</td>
+          <td style="padding: 0.5rem;">04:16:47.747</td>
+          <td style="text-align: right; padding: 0.5rem;">623.5</td>
+          <td style="text-align: right; padding: 0.5rem;">09:47</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">05 Mar 2024</td>
+          <td style="padding: 0.5rem;">05:18:40.085</td>
+          <td style="padding: 0.5rem;">05:31:48.497</td>
+          <td style="text-align: right; padding: 0.5rem;">788.4</td>
+          <td style="text-align: right; padding: 0.5rem;">09:59</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">06 Mar 2024</td>
+          <td style="padding: 0.5rem;">04:53:02.557</td>
+          <td style="padding: 0.5rem;">05:06:03.076</td>
+          <td style="text-align: right; padding: 0.5rem;">780.5</td>
+          <td style="text-align: right; padding: 0.5rem;">09:54</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">07 Mar 2024</td>
+          <td style="padding: 0.5rem;">04:27:53.788</td>
+          <td style="padding: 0.5rem;">04:39:56.886</td>
+          <td style="text-align: right; padding: 0.5rem;">723.1</td>
+          <td style="text-align: right; padding: 0.5rem;">09:49</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">08 Mar 2024</td>
+          <td style="padding: 0.5rem;">04:03:21.279</td>
+          <td style="padding: 0.5rem;">04:13:23.835</td>
+          <td style="text-align: right; padding: 0.5rem;">602.6</td>
+          <td style="text-align: right; padding: 0.5rem;">09:44</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">09 Mar 2024</td>
+          <td style="padding: 0.5rem;">05:15:24.473</td>
+          <td style="padding: 0.5rem;">05:28:33.969</td>
+          <td style="text-align: right; padding: 0.5rem;">789.5</td>
+          <td style="text-align: right; padding: 0.5rem;">09:56</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">10 Mar 2024</td>
+          <td style="padding: 0.5rem;">04:49:50.554</td>
+          <td style="padding: 0.5rem;">05:02:45.887</td>
+          <td style="text-align: right; padding: 0.5rem;">775.3</td>
+          <td style="text-align: right; padding: 0.5rem;">09:51</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">11 Mar 2024</td>
+          <td style="padding: 0.5rem;">04:24:45.900</td>
+          <td style="padding: 0.5rem;">04:36:36.692</td>
+          <td style="text-align: right; padding: 0.5rem;">710.8</td>
+          <td style="text-align: right; padding: 0.5rem;">09:46</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">12 Mar 2024</td>
+          <td style="padding: 0.5rem;">04:00:19.423</td>
+          <td style="padding: 0.5rem;">04:09:58.928</td>
+          <td style="text-align: right; padding: 0.5rem;">579.5</td>
+          <td style="text-align: right; padding: 0.5rem;">09:41</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">13 Mar 2024</td>
+          <td style="padding: 0.5rem;">05:12:09.411</td>
+          <td style="padding: 0.5rem;">05:25:18.946</td>
+          <td style="text-align: right; padding: 0.5rem;">789.5</td>
+          <td style="text-align: right; padding: 0.5rem;">09:53</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed rgba(0,0,0,0.1);">
+          <td style="padding: 0.5rem;">14 Mar 2024</td>
+          <td style="padding: 0.5rem;">04:46:39.115</td>
+          <td style="padding: 0.5rem;">04:59:28.198</td>
+          <td style="text-align: right; padding: 0.5rem;">769.1</td>
+          <td style="text-align: right; padding: 0.5rem;">09:48</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Complete pass log (scrollable) -->
+  <h3 style="font-family: Helvetica; text-transform: uppercase; letter-spacing: 0.1em; margin: 2rem 0 1rem;">Complete Access Log – GroundStation1</h3>
+  <div style="background: white; padding: 1.5rem; border-left: 6px solid var(--accent); max-height: 400px; overflow-y: scroll; font-family: 'Space Mono', monospace; font-size: 0.8rem;">
+    <pre style="white-space: pre-wrap; word-wrap: break-word;">
+Target: DefaultSC
+Observer: GroundStation1
+Start Time (UTC)            Stop Time (UTC)               Duration (s)         
+12 Feb 2024 17:13:06.658    12 Feb 2024 17:25:55.088      768.43013124    
+12 Feb 2024 18:54:29.240    12 Feb 2024 19:02:59.782      510.54152552    
+13 Feb 2024 04:21:53.538    13 Feb 2024 04:33:35.361      701.82317571    
+13 Feb 2024 06:01:34.484    13 Feb 2024 06:13:00.229      685.74431817    
+13 Feb 2024 16:47:52.918    13 Feb 2024 16:59:35.065      702.14691415    
+13 Feb 2024 18:27:37.978    13 Feb 2024 18:38:49.818      671.84023855    
+14 Feb 2024 03:57:31.253    14 Feb 2024 04:06:54.333      563.07960745    
+14 Feb 2024 05:35:07.246    14 Feb 2024 05:47:53.580      766.33399433    
+14 Feb 2024 16:23:16.810    14 Feb 2024 16:32:32.629      555.81898625    
+14 Feb 2024 18:01:21.229    14 Feb 2024 18:13:55.239      754.00953832    
+15 Feb 2024 03:34:38.030    15 Feb 2024 03:38:55.903      257.87218369    
+15 Feb 2024 05:09:11.480    15 Feb 2024 05:22:21.800      790.31997838    
+15 Feb 2024 06:54:56.914    15 Feb 2024 06:56:29.251      92.337123316    
+15 Feb 2024 16:00:37.870    15 Feb 2024 16:03:27.707      169.83708988    
+15 Feb 2024 17:35:26.987    15 Feb 2024 17:48:29.622      782.63488597    
+15 Feb 2024 19:19:27.347    15 Feb 2024 19:22:25.702      178.35463729    
+16 Feb 2024 04:43:43.536    16 Feb 2024 04:56:29.443      765.90689005    
+16 Feb 2024 06:25:17.715    16 Feb 2024 06:34:24.318      546.60354105    
+16 Feb 2024 17:09:53.345    16 Feb 2024 17:22:36.089      762.74492363    
+16 Feb 2024 18:51:02.868    16 Feb 2024 18:59:59.302      536.43463404    
+17 Feb 2024 04:18:45.931    17 Feb 2024 04:30:15.185      689.25348805    
+17 Feb 2024 05:58:11.134    17 Feb 2024 06:09:52.052      700.91767777    
+17 Feb 2024 16:44:44.327    17 Feb 2024 16:56:11.534      687.20606655    
+17 Feb 2024 18:24:17.404    17 Feb 2024 18:35:42.078      684.67360380    
+18 Feb 2024 03:54:30.462    18 Feb 2024 04:03:28.771      538.30939002    
+18 Feb 2024 05:31:48.533    18 Feb 2024 05:44:41.565      773.03197965    
+18 Feb 2024 16:20:15.309    18 Feb 2024 16:29:01.252      525.94270650    
+18 Feb 2024 17:58:03.844    18 Feb 2024 18:10:43.079      759.23461276    
+19 Feb 2024 03:32:09.284    19 Feb 2024 03:35:00.011      170.72697768    
+19 Feb 2024 05:05:56.482    19 Feb 2024 05:19:06.972      790.49056530    
+19 Feb 2024 06:50:31.603    19 Feb 2024 06:54:21.802      230.19868853    
+19 Feb 2024 17:32:12.207    19 Feb 2024 17:45:13.806      781.59953433    
+19 Feb 2024 19:15:33.701    19 Feb 2024 19:19:53.877      260.17551528    
+20 Feb 2024 04:40:32.239    20 Feb 2024 04:53:11.956      759.71725385    
+20 Feb 2024 06:21:47.843    20 Feb 2024 06:31:22.099      574.25547880    
+20 Feb 2024 17:06:41.365    20 Feb 2024 17:19:16.556      755.19124679    
+20 Feb 2024 18:47:37.456    20 Feb 2024 18:56:57.538      560.08225176    
+21 Feb 2024 04:15:39.152    21 Feb 2024 04:26:54.404      675.25211717    
+21 Feb 2024 05:54:48.651    21 Feb 2024 06:06:43.166      714.51550591    
+21 Feb 2024 16:41:36.265    21 Feb 2024 16:52:47.266      671.00045106    
+21 Feb 2024 18:20:57.203    21 Feb 2024 18:32:33.682      696.47876947    
+22 Feb 2024 03:51:31.193    22 Feb 2024 04:00:01.936      510.74265662    
+22 Feb 2024 05:28:30.476    22 Feb 2024 05:41:29.053      778.57692229    
+22 Feb 2024 16:17:15.332    22 Feb 2024 16:25:28.150      492.81798770    
+22 Feb 2024 17:54:46.697    22 Feb 2024 18:07:30.430      763.73271971    
+23 Feb 2024 05:02:42.094    23 Feb 2024 05:15:51.704      789.60937131    
+23 Feb 2024 06:46:36.057    23 Feb 2024 06:51:44.728      308.67193487    
+23 Feb 2024 17:28:57.649    23 Feb 2024 17:41:57.540      779.89092014    
+23 Feb 2024 19:11:50.886    23 Feb 2024 19:17:10.864      319.97776962    
+24 Feb 2024 04:37:21.606    24 Feb 2024 04:49:53.989      752.38378962    
+24 Feb 2024 06:18:19.492    24 Feb 2024 06:28:18.496      599.00358656    
+24 Feb 2024 17:03:29.685    24 Feb 2024 17:15:56.515      746.83059573    
+24 Feb 2024 18:44:12.840    24 Feb 2024 18:53:54.672      581.83154695    
+25 Feb 2024 04:12:33.246    25 Feb 2024 04:23:32.952      659.70640588    
+25 Feb 2024 05:51:26.988    25 Feb 2024 06:03:33.598      726.60984158    
+25 Feb 2024 16:38:28.765    25 Feb 2024 16:49:22.241      653.47516893    
+25 Feb 2024 18:17:37.327    25 Feb 2024 18:29:24.694      707.36651280    
+26 Feb 2024 03:48:33.687    26 Feb 2024 03:56:33.565      479.87743289    
+26 Feb 2024 05:25:13.063    26 Feb 2024 05:38:16.041      782.97769303    
+26 Feb 2024 16:14:17.223    26 Feb 2024 16:21:52.993      455.76953396    
+26 Feb 2024 17:51:29.764    26 Feb 2024 18:04:17.331      767.56760040    
+27 Feb 2024 04:59:28.316    27 Feb 2024 05:12:35.975      787.65892612    
+27 Feb 2024 06:42:50.164    27 Feb 2024 06:48:58.118      367.95433278    
+27 Feb 2024 17:25:43.303    27 Feb 2024 17:38:40.851      777.54880287    
+27 Feb 2024 19:08:13.422    27 Feb 2024 19:14:22.165      368.74271049    
+28 Feb 2024 04:34:11.648    28 Feb 2024 04:46:35.509      743.86136332    
+28 Feb 2024 06:14:52.478    28 Feb 2024 06:25:13.669      621.19077668    
+28 Feb 2024 17:00:18.306    28 Feb 2024 17:12:35.979      737.67306895    
+28 Feb 2024 18:40:48.894    28 Feb 2024 18:50:50.847      601.95375946    
+29 Feb 2024 04:09:28.262    29 Feb 2024 04:20:10.759      642.49702584    
+29 Feb 2024 05:48:06.100    29 Feb 2024 06:00:23.369      737.26908239    
+29 Feb 2024 16:35:21.875    29 Feb 2024 16:45:56.426      634.55060067    
+29 Feb 2024 18:14:17.738    29 Feb 2024 18:26:15.169      717.43079040    
+01 Mar 2024 03:45:38.274    01 Mar 2024 03:53:03.303      445.02857022    
+01 Mar 2024 05:21:56.274    01 Mar 2024 05:35:02.523      786.24897382    
+01 Mar 2024 16:11:21.509    01 Mar 2024 16:18:15.271      413.76225326    
+01 Mar 2024 17:48:13.026    01 Mar 2024 18:01:03.819      770.79253136    
+02 Mar 2024 04:56:15.141    02 Mar 2024 05:09:19.770      784.62935281    
+02 Mar 2024 06:39:09.762    02 Mar 2024 06:46:06.105      416.34226340    
+02 Mar 2024 17:22:29.161    02 Mar 2024 17:35:23.764      774.60309175    
+02 Mar 2024 19:04:39.298    02 Mar 2024 19:11:29.810      410.51182172    
+03 Mar 2024 04:31:02.373    03 Mar 2024 04:43:16.484      734.11086394    
+03 Mar 2024 06:11:26.652    03 Mar 2024 06:22:07.741      641.08952712    
+03 Mar 2024 16:57:07.240    03 Mar 2024 17:09:14.956      727.71606924    
+03 Mar 2024 18:37:25.520    03 Mar 2024 18:47:46.183      620.66375624    
+04 Mar 2024 04:06:24.252    04 Mar 2024 04:16:47.747      623.49538693    
+04 Mar 2024 05:44:45.939    04 Mar 2024 05:57:12.500      746.56029192    
+04 Mar 2024 16:32:15.661    04 Mar 2024 16:42:29.776      614.11420132    
+04 Mar 2024 18:10:58.408    04 Mar 2024 18:23:05.157      726.74934809    
+05 Mar 2024 03:42:45.444    05 Mar 2024 03:49:30.640      405.19513265    
+05 Mar 2024 05:18:40.085    05 Mar 2024 05:31:48.497      788.41210236    
+05 Mar 2024 16:08:29.056    05 Mar 2024 16:14:34.139      365.08294358    
+05 Mar 2024 17:44:56.474    05 Mar 2024 17:57:49.924      773.44916489    
+06 Mar 2024 04:53:02.557    06 Mar 2024 05:06:03.076      780.51867932    
+06 Mar 2024 06:35:33.089    06 Mar 2024 06:43:10.426      457.33706531    
+06 Mar 2024 17:19:15.227    06 Mar 2024 17:32:06.299      771.07206396    
+06 Mar 2024 19:01:07.510    06 Mar 2024 19:08:34.832      447.32197429    
+07 Mar 2024 04:27:53.788    07 Mar 2024 04:39:56.886      723.09826274    
+07 Mar 2024 06:08:01.888    07 Mar 2024 06:19:00.815      658.92665565    
+07 Mar 2024 16:53:56.508    07 Mar 2024 17:05:53.450      716.94165731    
+07 Mar 2024 18:34:02.647    07 Mar 2024 18:44:40.779      638.13171055    
+08 Mar 2024 04:03:21.279    08 Mar 2024 04:13:23.835      602.55603095    
+08 Mar 2024 05:41:26.462    08 Mar 2024 05:54:01.014      754.55215507    
+08 Mar 2024 16:29:10.215    08 Mar 2024 16:39:02.226      592.01093784    
+08 Mar 2024 18:07:39.320    08 Mar 2024 18:19:54.704      735.38354802    
+09 Mar 2024 03:39:55.993    09 Mar 2024 03:45:54.762      358.76934909    
+09 Mar 2024 05:15:24.473    09 Mar 2024 05:28:33.969      789.49575828    
+09 Mar 2024 16:05:41.479    09 Mar 2024 16:10:48.011      306.53221572    
+09 Mar 2024 17:41:40.109    09 Mar 2024 17:54:35.675      775.56642954    
+10 Mar 2024 04:49:50.554    10 Mar 2024 05:02:45.887      775.33227772    
+10 Mar 2024 06:31:59.185    10 Mar 2024 06:40:12.020      492.83422083    
+10 Mar 2024 17:16:01.512    10 Mar 2024 17:28:48.473      766.96133483    
+10 Mar 2024 18:57:37.476    10 Mar 2024 19:05:37.844      480.36743162    
+11 Mar 2024 04:24:45.900    11 Mar 2024 04:36:36.692      710.79222313    
+11 Mar 2024 06:04:38.078    11 Mar 2024 06:15:52.978      674.89939610    
+11 Mar 2024 16:50:46.141    11 Mar 2024 17:02:31.450      705.31537319    
+11 Mar 2024 18:30:40.226    11 Mar 2024 18:41:34.715      654.48894084    
+12 Mar 2024 04:00:19.423    12 Mar 2024 04:09:58.928      579.50525073    
+12 Mar 2024 05:38:07.623    12 Mar 2024 05:50:48.939      761.31639965    
+12 Mar 2024 16:26:05.652    12 Mar 2024 16:35:33.685      568.03302211    
+12 Mar 2024 18:04:20.467    12 Mar 2024 18:16:43.845      743.37759916    
+13 Mar 2024 03:37:11.381    13 Mar 2024 03:42:14.189      302.80758954    
+13 Mar 2024 05:12:09.411    13 Mar 2024 05:25:18.946      789.53555042    
+13 Mar 2024 16:03:02.529    13 Mar 2024 16:06:53.160      230.63033663    
+13 Mar 2024 17:38:23.934    13 Mar 2024 17:51:21.094      777.15977957    
+14 Mar 2024 04:46:39.115    14 Mar 2024 04:59:28.198      769.08219281    
+14 Mar 2024 06:28:27.452    14 Mar 2024 06:37:11.463      524.01145786    
+14 Mar 2024 17:12:48.031    14 Mar 2024 17:25:30.294      762.26313435    
+14 Mar 2024 18:54:08.831    14 Mar 2024 19:02:39.243      510.41254877
+    </pre>
+  </div>
+</section>
+
+<!-- Orbit View Technical Plate -->
+<section class="section">
+  <h2>Orbital View — Post‑Maneuver</h2>
+  
+  <div class="blueprint-panel" style="padding: 2rem; background: white; position: relative;">
+    <!-- Dossier stamp (subtle overlay) -->
+    <div style="position: absolute; top: 20px; right: 30px; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); opacity: 0.4; transform: rotate(-3deg);">
+      FIG. 001‑A · SSO ORBIT VIEW
+    </div>
+    
+    <!-- Image container with archival border -->
+    <div style="border: 1px solid rgba(0,0,0,0.1); background: #faf8f2; padding: 1rem;">
+      <img 
+        src="images/OrbitView_SSO.png" 
+        alt="Post‑maneuver Sun Synchronous Orbit ground track visualization"
+        style="width: 100%; height: auto; display: block; filter: sepia(0.2) contrast(0.95); border: 1px solid var(--accent);"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <!-- Fallback if image missing (keeps layout intact) -->
+      <div style="display: none; aspect-ratio: 16/9; background: #eae7dd; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; color: var(--muted); border: 1px solid var(--accent);">
+        [ ORBIT VIEW PNG — PLACEHOLDER ]
+      </div>
+    </div>
+    
+    <!-- Technical caption with grid overlay reference -->
+    <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px dashed rgba(0,0,0,0.1); padding-top: 1rem;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.8rem;">
+        <span style="background: var(--accent); color: white; padding: 0.2rem 0.5rem; margin-right: 0.5rem;">PLATE 001‑A</span>
+        ORBIT VIEW · 800 km SSO · LTAN 10:00
+      </div>
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted);">
+        REF: 19.72°N, 82.98°E · 12 FEB – 14 MAR 2024
+      </div>
+    </div>
+    
+    <!-- Optional: subtle grid coordinates overlay indicator -->
+    <div style="margin-top: 0.5rem; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); display: flex; gap: 2rem;">
+      <span>⏦ NODAL CROSSING: 98.558°</span>
+      <span>⌔ ASCENDING NODE: 306° → 307.75°</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2003–<span id="year"></span> Smayan Kartha — Project Portfolio
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

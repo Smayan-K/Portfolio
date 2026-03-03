@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archives – Orbital Mechanics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* Archive-specific tweaks */
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    body {
+      flex: 1;
+    }
+    .archive-hero {
+      padding: 3rem 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .archive-title h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .archive-title .report-tag {
+      margin-bottom: 0.5rem;
+    }
+    .archive-stats {
+      font-family: 'Space Mono', monospace;
+      background: white;
+      padding: 1rem 2rem;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .archive-stats div {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .archive-stats .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .search-bar {
+      margin: 2rem 6vw;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .search-bar input {
+      flex: 1;
+      padding: 0.8rem 1.2rem;
+      font-family: 'Space Mono', monospace;
+      border: 1px solid rgba(0,0,0,0.1);
+      background: white;
+      font-size: 0.9rem;
+    }
+    .search-bar input::placeholder {
+      color: var(--muted);
+      opacity: 0.6;
+    }
+    .search-bar button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+    }
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      padding: 0 6vw 4rem;
+      flex: 1;
+    }
+    .dossier-card {
+      background: white;
+      padding: 1.5rem;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .dossier-card:hover {
+      transform: translateY(-4px);
+    }
+    .dossier-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .dossier-card h3 {
+      font-family: Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .dossier-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+    .dossier-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      background: var(--paper);
+      border: 1px solid rgba(0,0,0,0.1);
+      color: var(--ink);
+    }
+    .dossier-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      color: var(--accent);
+      align-self: flex-start;
+    }
+    .section-header {
+      padding: 2rem 6vw 1rem;
+      font-family: Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    footer {
+      margin-top: auto;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="/" style="text-decoration: none; color: inherit;">
+    <div class="logo">PORTFOLIO - SMAYAN K.</div>
+  </a>
+  <nav>
+    <a href="archives/index.html">ARCHIVES</a>
+  </nav>
+</header>
+
+<!-- Archive Hero (compact) -->
+<div class="archive-hero">
+  <div class="archive-title">
+    <div class="report-tag">ENGINEERING ARCHIVE · v2.1</div>
+    <h1>Orbital Mechanics Dossiers</h1>
+    <p style="max-width: 500px; color: var(--muted);">
+      Complete mission studies, simulation tools, and technical reports.
+    </p>
+  </div>
+  <div class="archive-stats">
+    <div class="stat-number">2</div>
+    <div>ACTIVE DOSSIERS</div>
+    <div style="margin-top: 0.8rem;">Last updated: 2025.03.01</div>
+  </div>
+</div>
+
+<!-- Search / Filter Bar (non‑functional placeholder) -->
+<div class="search-bar">
+  <input type="text" placeholder="FILTER BY KEYWORD, MISSION, OR TAG...">
+  <button>SEARCH</button>
+</div>
+
+<!-- Dossier Grid -->
+<div class="section-header">ALL PROJECTS (001–099)</div>
+<div class="dossier-grid">
+  <!-- Dossier 001 - Random Target Overfly Challenge -->
+  <div class="dossier-card">
+    <div class="dossier-number">DOSSIER 001‑A</div>
+    <h3>Random Target Overfly Challenge</h3>
+    <p>SSO maneuver planning: raising 300km → 800km with RAAN precession to achieve 10:00 LTAN over 19.72°N, 82.98°E.</p>
+    <div class="dossier-tags">
+      <span class="tag">SSO</span>
+      <span class="tag">MANEUVERS</span>
+      <span class="tag">RAAN PRECESSION</span>
+      <span class="tag">LTAN</span>
+    </div>
+    <a href="001.html" class="dossier-link">OPEN DOSSIER →</a>
+  </div>
+
+  <!-- Dossier 002 - Tundra Orbit Design (UPDATED) -->
+  <div class="dossier-card">
+    <div class="dossier-number">DOSSIER 002‑A</div>
+    <h3>Tundra Orbit Design</h3>
+    <p>High‑latitude communication constellation: 24‑hour Tundra orbit with apogee dwell over 37.48°S, 135.23°E. Extended coverage windows for persistent regional access.</p>
+    <div class="dossier-tags">
+      <span class="tag">TUNDRA</span>
+      <span class="tag">HIGH LATITUDE</span>
+      <span class="tag">APOGEE DWELL</span>
+      <span class="tag">COMMUNICATIONS</span>
+    </div>
+    <a href="002.html" class="dossier-link">OPEN DOSSIER →</a>
+  </div>
+</div>
+
+<footer>
+  © 2003–<span id="year"></span> Smayan Kartha — Project Portfolio
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

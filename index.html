@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Ensure carousel items have consistent height and link styling */
+    .carousel-item {
+      background: white;
+      padding: 1.5rem;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 200px;
+    }
+    .carousel-item:hover {
+      transform: translateY(-4px);
+    }
+    .carousel-item h3 {
+      font-family: Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .carousel-item p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+    .carousel-item .archive-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      color: var(--accent);
+      align-self: flex-start;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a href="/" style="text-decoration: none; color: inherit;">
+    <div class="logo">PORTFOLIO - SMAYAN K.</div>
+  </a>
+  <nav>
+    <a href="archives/index.html">ARCHIVES</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="report-tag">ENGINEERING DOSSIER 001-A</div>
+    <h1>Orbital Mechanics Archive</h1>
+    <p>
+      A curated collection of orbital mechanics research projects, simulations,
+      and analytical reports presented in archival engineering format.
+      This document serves as the primary launchpad to active mission studies.
+    </p>
+    <a href="archives/index.html" class="cta">ENTER ARCHIVE</a>
+  </div>
+
+  <div class="blueprint-panel">
+    <div class="blueprint-placeholder">
+      ORBITAL MISSION DESIGN
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Archives</h2>
+
+  <div class="carousel">
+    <div class="carousel-track" id="track">
+      <!-- Orbital Mechanics Archive Card -->
+      <div class="carousel-item">
+        <h3>Orbital Mechanics Archive</h3>
+        <p>Mission studies, simulation tools, and technical reports on orbital dynamics, SSO, Tundra orbits, and constellation design.</p>
+        <a href="archives/index.html" class="archive-link">ENTER ARCHIVE →</a>
+      </div>
+      <!-- Photography Archive Card -->
+      <div class="carousel-item">
+        <h3>Photography Archive</h3>
+        <p>A collection of photographic work, including astrophotography, landscapes, and technical imaging.</p>
+        <a href="archives/photography.html" class="archive-link">ENTER ARCHIVE →</a>
+      </div>
+      <!-- Add more archive cards here later – they will all be 300px wide -->
+    </div>
+  </div>
+
+  <div class="carousel-controls">
+    <button id="prev">PREV</button>
+    <button id="next">NEXT</button>
+  </div>
+</section>
+<section class="section">
+  <h2>Featured Projects</h2>
+
+  <div class="featured-grid">
+    <!-- Dossier 001 - Random Target Overfly Challenge -->
+    <div class="project-card">
+      <h3>Random Target Overfly Challenge</h3>
+      <p>SSO maneuver planning: raising 300km → 800km with RAAN precession to achieve 10:00 LTAN over 19.72°N, 82.98°E.</p>
+      <div class="dossier-tags" style="margin-bottom: 1rem;">
+        <span class="tag" style="font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 0.2rem 0.6rem; background: var(--paper); border: 1px solid rgba(0,0,0,0.1);">SSO</span>
+        <span class="tag" style="font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 0.2rem 0.6rem; background: var(--paper); border: 1px solid rgba(0,0,0,0.1);">MANEUVERS</span>
+        <span class="tag" style="font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 0.2rem 0.6rem; background: var(--paper); border: 1px solid rgba(0,0,0,0.1);">RAAN PRECESSION</span>
+      </div>
+      <a href="archives/001.html" class="dossier-link" style="font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-decoration: none; color: var(--accent);">OPEN DOSSIER →</a>
+    </div>
+
+    <!-- Dossier 002 - Tundra Orbit Design -->
+    <div class="project-card">
+      <h3>Tundra Orbit Design</h3>
+      <p>High‑latitude communication constellation: 24‑hour Tundra orbit with apogee dwell over 37.48°S, 135.23°E. Extended coverage windows for persistent regional access.</p>
+      <div class="dossier-tags" style="margin-bottom: 1rem;">
+        <span class="tag" style="font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 0.2rem 0.6rem; background: var(--paper); border: 1px solid rgba(0,0,0,0.1);">TUNDRA</span>
+        <span class="tag" style="font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 0.2rem 0.6rem; background: var(--paper); border: 1px solid rgba(0,0,0,0.1);">HIGH LATITUDE</span>
+        <span class="tag" style="font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 0.2rem 0.6rem; background: var(--paper); border: 1px solid rgba(0,0,0,0.1);">APOGEE DWELL</span>
+      </div>
+      <a href="archives/002.html" class="dossier-link" style="font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-decoration: none; color: var(--accent);">OPEN DOSSIER →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2003–<span id="year"></span> Smayan Kartha — Project Portfolio
+</footer>
+
+<script>
+  // Update footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Simple carousel functionality
+  const track = document.getElementById('track');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  let position = 0;
+  const itemWidth = 300 + 32; // approximate width + gap
+  const maxPosition = track.children.length - 1;
+
+  if (prev && next) {
+    next.addEventListener('click', () => {
+      if (position < maxPosition) {
+        position++;
+        track.style.transform = `translateX(-${position * itemWidth}px)`;
+      }
+    });
+    prev.addEventListener('click', () => {
+      if (position > 0) {
+        position--;
+        track.style.transform = `translateX(-${position * itemWidth}px)`;
+      }
+    });
+  }
+</script>
+
+<!-- Your main.js may still contain other scripts; keep it if needed -->
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

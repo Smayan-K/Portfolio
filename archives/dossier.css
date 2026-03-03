@@ -1,0 +1,128 @@
+/* Dossier-specific styles shared across all project pages */
+
+.dossier-header {
+  padding: 2rem 6vw 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.dossier-title {
+  max-width: 600px;
+}
+
+.dossier-title .report-tag {
+  margin-bottom: 0.5rem;
+}
+
+.dossier-title h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.publication-date {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.params-panel {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-left: 6px solid var(--accent);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+  font-family: 'Space Mono', monospace;
+  min-width: 300px;
+}
+
+.params-panel h3 {
+  font-family: Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.param-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.param-item {
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+  padding-bottom: 0.3rem;
+}
+
+.param-label {
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.param-value {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.challenge-block {
+  margin: 2rem 6vw;
+  background: white;
+  padding: 1.8rem;
+  border-left: 6px solid var(--accent);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.challenge-block strong {
+  font-family: 'Space Mono', monospace;
+  background: rgba(11,33,63,0.05);
+  padding: 0.1rem 0.3rem;
+}
+
+.target-highlight {
+  background: var(--paper);
+  font-family: 'Space Mono', monospace;
+  padding: 0.2rem 0.5rem;
+  border: 1px dashed var(--accent);
+  display: inline-block;
+  margin: 0 0.2rem;
+}
+
+.maneuver-summary {
+  padding: 0 6vw 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.summary-card {
+  background: white;
+  padding: 1.5rem;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.summary-card h3 {
+  font-family: Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.summary-card p {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+}
+
+/* Optional: image plate styles (used in both dossiers) */
+.blueprint-panel {
+  /* Already defined in main style.css, but we can add dossier-specific overrides if needed */
+}
